@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - เจตนิพัทธ์ เพชรพัว</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9; /* พื้นหลังสีเทาอ่อนสะอาดตา */
+            color: #333333; /* ตัวอักษรสีเทาเข้มแบบทางการ */
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        /* กล่องคอนเทนเนอร์หลัก */
+        .cv-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            display: flex;
+            overflow: hidden;
+            border: 1px solid #e1e4e8;
+        }
+
+        /* -----------------------------------------
+           1. Sidebar (แถบด้านซ้าย - สีกรมท่าทางการ)
+        ----------------------------------------- */
+        .sidebar {
+            width: 35%;
+            background-color: #0f2547; /* สีกรมท่าสุภาพ (Navy Blue) */
+            color: #ffffff;
+            padding: 40px 30px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 135px;
+            height: 135px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid #ffffff; /* ขอบรูปสีขาวสุภาพ */
+            display: block;
+            object-fit: cover; 
+            object-position: center;
+        }
+
+        .profile-section h1 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .profile-section p {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-title {
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1.5px solid #334155;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            color: #38bdf8; /* สีฟ้านำสายตาแบบสุภาพ */
+        }
+
+        .contact-info p {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info a {
+            color: #e2e8f0;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* -----------------------------------------
+           2. Main Content (เนื้อหาด้านขวา - สีขาว)
+        ----------------------------------------- */
+        .main-content {
+            width: 65%;
+            padding: 50px 40px;
+            background-color: #ffffff;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f2547;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 45px;
+            height: 3px;
+            background-color: #0f2547;
+            border-radius: 2px;
+        }
+
+        .about-text {
+            color: #555555;
+            margin-bottom: 35px;
+            font-size: 14px;
+        }
+
+        /* ส่วนรายการข้อมูลทั่วไป */
+        .timeline-item {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid #e1e4e8;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #0f2547;
+        }
+
+        .timeline-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f2547;
+            margin-bottom: 2px;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: #333333;
+        }
+
+        /* ส่วนโฟกัสทักษะ (รายการแบบทางการ) */
+        .focus-list {
+            list-style: none;
+        }
+
+        .focus-list li {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #333333;
+            background-color: #f8fafc;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .focus-list strong {
+            color: #0f2547;
+        }
+
+        /* Responsive สำหรับมือถือ */
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                padding: 40px 20px;
+            }
+            .main-content {
+                width: 100%;
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        
+        <!-- แถบข้อมูลด้านซ้าย (Sidebar) -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <!-- ดึงรูปโปรไฟล์จากไฟล์ 12738.jpg มาแสดงผล -->
+                <img src="12738.jpg" class="profile-img" alt="Profile Picture">
+                <h1>เจตนิพัทธ์ เพชรพัว</h1>
+                <p>นักเรียนระดับชั้น ปวช.2</p>
+            </div>
+
+            <div class="sidebar-title">ช่องทางการติดต่อ</div>
+            <div class="contact-info">
+                <p>📩 <a href="mailto:68219010003@kbtc.ac.th">68219010003@kbtc.ac.th</a></p>
+                <p>💬 Line: heartjetnipat</p>
+                <p>📸 IG: pxherzt_053</p>
+                <p>📍 วิทยาลัยเทคนิคกระบี่</p>
+            </div>
+
+            <div class="sidebar-title">ความสามารถพิเศษ</div>
+            <div style="font-size: 14px; color: #e2e8f0; line-height: 1.8;">
+                <p>⌨️ <strong>ด้านคอมพิวเตอร์:</strong> ทักษะการพิมพ์ดีดเร็ว</p>
+                <p>🎨 <strong>ด้านสร้างสรรค์:</strong> วาดภาพดิจิทัล (Digital Art)</p>
+                <p>🗣️ <strong>ด้านภาษา:</strong> ทักษะการสื่อสารภาษาอังกฤษเบื้องต้น</p>
+                <p>👥 <strong>ด้านสังคม:</strong> มีมนุษยสัมพันธ์ดี ทำงานร่วมกับผู้อื่นได้ดี</p>
+            </div>
+        </div>
+
+        <!-- แถบเนื้อหาด้านขวา (Main Content) -->
+        <div class="main-content">
+            
+            <h2 class="section-title">เป้าหมายการทำงาน</h2>
+            <p class="about-text">
+                มีความมุ่งมั่นตั้งใจที่จะพัฒนาทักษะทางเทคโนโลยี การออกแบบและพัฒนาโครงสร้างเว็บไซต์ รวมถึงการสร้างสรรค์สื่อดิจิทัล ปัจจุบันกำลังเตรียมความพร้อมและจัดทำพอร์ตฟอลิโอ (Portfolio) เพื่อใช้ประกอบการเข้าฝึกงานในสถานประกอบการ
+            </p>
+
+            <h2 class="section-title">ประวัติการศึกษาและข้อมูลทั่วไป</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-title">สถานศึกษา</div>
+                <div class="timeline-desc">วิทยาลัยเทคนิคกระบี่</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-title">สาขาวิชา / สายการเรียน</div>
+                <div class="timeline-desc">สาขาเทคโนโลยีสารสนเทศ (ปวช. 2/1)</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-title">ความสนใจพิเศษ</div>
+                <div class="timeline-desc">เทคโนโลยีสมัยใหม่ / การพัฒนาเว็บไซต์ (Web Development) / การออกแบบกราฟิก</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-title">การพัฒนาตนเอง</div>
+                <div class="timeline-desc">ศึกษาและฝึกฝนทักษะการเขียนโปรแกรมอย่างสม่ำเสมอ</div>
+            </div>
+
+            <h2 class="section-title">ทักษะความสามารถหลัก (Current Focus)</h2>
+            <ul class="focus-list">
+                <li>🐍 <strong>Python</strong> - ศึกษาโครงสร้างและการพัฒนาโปรแกรมประยุกต์เบื้องต้น</li>
+                <li>🌐 <strong>HTML5 / CSS3</strong> - ฝึกฝนการออกแบบ จัดทำเลย์เอาต์ และพัฒนาโครงสร้างเว็บไซต์</li>
+                <li>🎨 <strong>Photoshop</strong> - ประยุกต์ใช้ในการสร้างสรรค์และตกแต่งสื่อสิ่งพิมพ์/ภาพกราฟิกพื้นฐาน</li>
+            </ul>
+
+        </div>
+    </div>
+
+</body>
+</html>
